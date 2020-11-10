@@ -2220,7 +2220,7 @@ static_assert(hbm[Z_AXIS] >= 0, "HOMING_BUMP_MM.Z must be greater than or equal 
   + COUNT_ENABLED(TFTGLCD_PANEL_SPI, TFTGLCD_PANEL_I2C) \
   + COUNT_ENABLED(VIKI2, miniVIKI) \
   + COUNT_ENABLED(ZONESTAR_12864LCD, ZONESTAR_12864OLED, ZONESTAR_12864OLED_SSD1306) \
-  + ENABLED(ANET_FULL_GRAPHICS_LCD) \
+  + COUNT_ENABLED(ANET_FULL_GRAPHICS_LCD, ANET_FULL_GRAPHICS_LCD_ALT_WIRING) \
   + ENABLED(AZSMZ_12864) \
   + ENABLED(BQ_LCD_SMART_CONTROLLER) \
   + ENABLED(CARTESIO_UI) \
@@ -2292,6 +2292,20 @@ static_assert(hbm[Z_AXIS] >= 0, "HOMING_BUMP_MM.Z must be greater than or equal 
 
 #if defined(GRAPHICAL_TFT_UPSCALE) && !WITHIN(GRAPHICAL_TFT_UPSCALE, 2, 3)
   #error "GRAPHICAL_TFT_UPSCALE must be set to 2 or 3."
+#endif
+
+/**
+ * Some boards forbid the use of -1 Native USB
+ */
+#if ENABLED(BOARD_NO_NATIVE_USB)
+  #undef BOARD_NO_NATIVE_USB
+  #if SERIAL_PORT == -1
+    #error "SERIAL_PORT is set to -1, but the MOTHERBOARD has no native USB support. Set SERIAL_PORT to a valid value for your board."
+  #elif SERIAL_PORT_2 == -1
+    #error "SERIAL_PORT_2 is set to -1, but the MOTHERBOARD has no native USB support. Set SERIAL_PORT_2 to a valid value for your board."
+  #elif LCD_SERIAL_PORT == -1
+    #error "LCD_SERIAL_PORT is set to -1, but the MOTHERBOARD has no native USB support. Set LCD_SERIAL_PORT to a valid value for your board."
+  #endif
 #endif
 
 /**
