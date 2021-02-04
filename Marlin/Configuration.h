@@ -490,9 +490,9 @@
 
   // My current PID settings on Ender 5
   // pidautotune M303 E0 S210 C8, set with M301 P xx Ixx Dxx
-  #define DEFAULT_Kp 19.35
-  #define DEFAULT_Ki 1.36
-  #define DEFAULT_Kd 68.67
+  #define DEFAULT_Kp 37.5436
+  #define DEFAULT_Ki 3.7657
+  #define DEFAULT_Kd 93.5775
   // MakerGear
   //#define DEFAULT_Kp 7.0
   //#define DEFAULT_Ki 0.1
