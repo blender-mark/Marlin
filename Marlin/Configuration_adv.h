@@ -3455,26 +3455,32 @@
   //#define CUSTOM_USER_MENU_TITLE "Custom Commands"
   #define USER_SCRIPT_DONE "M117 User Script Done"
   #define USER_SCRIPT_AUDIBLE_FEEDBACK
-  //#define USER_SCRIPT_RETURN  // Return to status screen after a script
+  //#define USER_SCRIPT_RETURN    // Return to status screen after a script
+  #define CUSTOM_MENU_ONLY_IDLE   // Only show custom menu when the machine is idle
 
   #define USER_DESC_1 "Home"
   #define USER_GCODE_1 "G28"
+  //#define USER_CONFIRM_1        // Show a confirmation dialog before this action
 
   #define USER_DESC_2 "Raise Z free"
   #define USER_GCODE_2 "G1 Z90 F300"
+  //#define USER_CONFIRM_2
 
   #define USER_DESC_3 "Front Right"
   #define USER_GCODE_3 "G1 Z90 F300\nG1 X10 Y170 F3000\nG1 Z85 F150"
+  //#define USER_CONFIRM_3
 
   #define USER_DESC_4 "Front Left"
   #define USER_GCODE_4 "G1 Z90 F300\nG1 X200 Y170 F3000\nG1 Z85 F150"
+  //#define USER_CONFIRM_4
 
   #define USER_DESC_5 "Back Left"
   #define USER_GCODE_5 "G1 Z90 F300\nG1 X200 Y1 F3000\nG1 Z85 F150"
+  //#define USER_CONFIRM_5
 
   #define USER_DESC_6 "Back Right"
   #define USER_GCODE_6 "G1 Z90 F300\nG1 X5 Y1 F3000\nG1 Z85 F150"
-
+  //#define USER_CONFIRM_6
 #endif
 
 /**
